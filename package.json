@@ -1,0 +1,35 @@
+{
+  "name": "stylus-pug-jeet",
+  "version": "0.1.0",
+  "description": "A basic front-end development package using gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Gulp",
+    "Pug",
+    "Stylus",
+    "Jeet"
+  ],
+  "author": "Elliot Smith",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-connect-php": "0.0.8",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-pug": "^3.1.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uncss": "^1.0.6",
+    "gulp-util": "^3.0.7",
+    "jeet": "^7.0.0",
+    "kouto-swiss": "^0.13.1",
+    "stylus": "^0.54.5"
+  }
+}

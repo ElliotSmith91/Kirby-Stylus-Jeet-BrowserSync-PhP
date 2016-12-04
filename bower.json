@@ -1,0 +1,27 @@
+{
+  "name": "stylus-pug-jeet",
+  "description": "A basic front-end development package using gulp",
+  "main": "index.js",
+  "authors": [
+    "Elliot Smith"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Gulp",
+    "Pug",
+    "Stylus",
+    "Jeet"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1"
+  }
+}
