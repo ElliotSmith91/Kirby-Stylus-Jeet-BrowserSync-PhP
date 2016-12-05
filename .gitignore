@@ -18,6 +18,13 @@ thumbs/*
 site/cache/*
 !site/cache/index.html
 
+# Exclude _site content & site
+_site/content/**
+_site/site/blueprints/**
+_site/site/controllers/**
+_site/site/snippets/**
+_site/site/templates/**
+
 
 ### Node ###
 # Logs
@@ -71,7 +78,7 @@ jspm_packages
 
 
 ### Stylus ###
-*.css
+
 
 
 ### Bower ###
