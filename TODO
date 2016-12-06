@@ -1,2 +1,3 @@
-Make gulp task to copy files from dev to site
-upload files to repo
+Add watch task to content items to update browserSync etc.
+Expand readme file
+Use an image compressor with gulp...
