@@ -28,6 +28,7 @@
     "gulp-stylus": "^2.6.0",
     "gulp-uncss": "^1.0.6",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.11",
     "jeet": "^7.0.0",
     "kouto-swiss": "^0.13.1",
     "stylus": "^0.54.5"

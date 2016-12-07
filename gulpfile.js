@@ -11,12 +11,24 @@ var combineMQ = require('gulp-combine-mq');
 var unCss = require('gulp-uncss');
 var koutoSwiss = require( "kouto-swiss" );
 var php  = require('gulp-connect-php');
+var watch = require('gulp-watch');
+
+//defining proxy and ports for browserSync and php server
+var phpPort = 8010;
+var browserSyncProxy = '127.0.0.1:8010';
 
 //defining some commonly used paths
 var basePaths = {
-  'bower': './bower_components/',
-  'dev': './_dev/',
-  'dest': './_site/'
+  bower: './bower_components/',
+  dev: './_dev/',
+  dest: './_site/'
+};
+
+var devEdit = {
+  images: basePaths.dev + 'assets/images/**',
+  fonts: basePaths.dev + 'assets/fonts/**',
+  content: basePaths.dev + 'content/**/**',
+  site: basePaths.dev + 'site/**/**'
 };
 
 //defining source file paths
@@ -32,7 +44,8 @@ var paths = {
   scripts: {
     src: basePaths.dev +'assets/scripts/',
     dest: basePaths.dest +'assets/scripts/'
-  }
+  },
+  content: basePaths.dev +'content/**'
 };
 
 var appFiles = {
@@ -94,44 +107,40 @@ gulp.task('scripts', function(){
   .pipe(gulp.dest('./_site/assets/js'));
 });
 
-gulp.task('watch', ['stylus', 'scripts'], function() {
+gulp.task('watch', ['stylus', 'scripts', 'copy'], function() {
   gulp.watch(appFiles.styles, ["stylus"]);
   gulp.watch(appFiles.scripts, ["scripts"]);
+  gulp.watch(paths.content, ['copy']);
   // gulp.watch(src.pug, ['pug']);
 });
 
 gulp.task('php', function(){
-  php.server({base: '_site', port:8010, keepalive: true});
+  php.server({base: '_site', port:phpPort, keepalive: true});
 });
 
 //Copy recursive folder and files from _dev to _site directories
-// use / if tou want to copy all subdirectories
+// use / if tou want to copy all subdirectories... Not including CSS/ //JS assets as they are moved/ processed earlier
 gulp.task('copy', function(){
   gulp.src([
     basePaths.dev + 'assets/fonts/**',
     basePaths.dev + 'assets/images/**',
-    basePaths.dev +'site/blueprints/**',
-    basePaths.dev + 'site/controllers/**',
-    basePaths.dev + 'site/snippets/**',
-    basePaths.dev + 'site/templates/**',
+    basePaths.dev +'site/**/**',
     basePaths.dev + 'content/**'
-  ],{
-    "base" : basePaths.dev
-  })
-  .pipe(gulp.dest(basePaths.dest));
+  ],{base : basePaths.dev})
+  .pipe(watch(basePaths.dev, {base: basePaths.dev}))
+  .pipe(gulp.dest(basePaths.dest))
+  browserSync.reload();
 });
-
 
 gulp.task('serve', ['php'], function(){
   browserSync.init({
-    proxy: '127.0.0.1:8010',
+    proxy: browserSyncProxy,
     port: 8080,
     open: true,
     notify: false
   });
 
   gulp.watch(appFiles.styles, ['stylus']);
-  gulp.watch("./_site/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['copy', 'serve', 'watch']);
+gulp.task('default', ['serve', 'watch']);
