@@ -128,7 +128,7 @@ gulp.task('copy', function(){
     basePaths.dev + 'content/**'
   ],{base : basePaths.dev})
   .pipe(watch(basePaths.dev, {base: basePaths.dev}))
-  .pipe(gulp.dest(basePaths.dest))
+  .pipe(gulp.dest(basePaths.dest));
   browserSync.reload();
 });
 
