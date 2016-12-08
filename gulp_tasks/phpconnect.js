@@ -9,6 +9,6 @@ const phpPort = 8010;
 
 module.exports = function (gulp, plugins) {
   return function () {
-    php.server({base: '_site', port:phpPort, keepalive: true});
+    plugins.connectPhp.server({base: '_site', port:phpPort, keepalive: true});
   };
 };

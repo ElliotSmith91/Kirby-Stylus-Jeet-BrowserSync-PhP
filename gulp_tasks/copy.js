@@ -1,14 +1,9 @@
+const browserSync = require('browser-sync');
+
 const basePaths = {
   bower: './bower_components/',
   dev: './_dev/',
   dest: './_site/'
-};
-
-exports.paths = {
-  bower: './bower_components/',
-  dev: './_dev/',
-  dest: './_site/',
-  tasks: 'gulp_tasks'
 };
 
 //defining source file paths
@@ -37,7 +32,7 @@ module.exports = function (gulp, plugins) {
       basePaths.dev +'site/**/**',
       basePaths.dev + 'content/**'
     ],{base : basePaths.dev})
-    .pipe(watch(basePaths.dev, {base: basePaths.dev}))
+    .pipe(plugins.watch(basePaths.dev, {base: basePaths.dev}))
     .pipe(gulp.dest(basePaths.dest));
     browserSync.reload();
   };
