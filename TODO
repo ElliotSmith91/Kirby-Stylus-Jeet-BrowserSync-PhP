@@ -1,3 +1,4 @@
 Expand readme file
 Use an image compressor with gulp...
 Utilise gulp-hub or some other package to better handle gulp tasks etc.
+Split up gulp tasks for easier gulp-hub integration.
