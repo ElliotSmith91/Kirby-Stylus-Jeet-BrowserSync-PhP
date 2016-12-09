@@ -1,0 +1,26 @@
+{
+  "bower": "./bower_components/",
+  "dev" : "./_dev/",
+  "dest": "./_site/",
+
+  "fontsSrcPath": "./_dev/assets/fonts/**",
+
+  "siteSrcPath": "./_dev/site/**",
+
+  "stylesSrcPath": "./_dev/assets/styl/**/*.styl",
+  "stylesDestPath": "./_site/assets/css/",
+  "autoPrefixerList" : "last 15 versions', '> 1%', 'ie 8', 'ie 7",
+
+  "imgSrcPath": "./_dev/assets/images/",
+  "imgDestPath": "./_site/assets/images/",
+
+  "scriptSrcPath": "./_dev/assets/scripts/*.js",
+  "scriptsDestPath": "./_site/assets/js/",
+
+  "contentSrcPath": "./_dev/content/**",
+
+  "browserSyncProxy": "127.0.0.1:8010",
+  "broswerSyncPort": 8010,
+
+  "phpPort": 8010
+}

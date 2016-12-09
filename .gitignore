@@ -18,7 +18,8 @@ thumbs/*
 site/cache/*
 !site/cache/index.html
 
-# Exclude _site content & site
+# Exclude _site content assets & site
+_site/assets/**
 _site/content/**
 _site/site/blueprints/**
 _site/site/controllers/**

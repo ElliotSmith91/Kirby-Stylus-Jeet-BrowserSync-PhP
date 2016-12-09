@@ -4,11 +4,9 @@
 // var php  = require('gulp-connect-php');
 // const conf = require('../conf/gulp.conf');
 
-//defining proxy and ports for browserSync and php server
-const phpPort = 8010;
 
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, plugins, conf) {
   return function () {
-    plugins.connectPhp.server({base: '_site', port:phpPort, keepalive: true});
+    plugins.connectPhp.server({base: '_site', port:conf.phpPort, keepalive: true});
   };
 };
