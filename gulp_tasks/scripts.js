@@ -7,9 +7,9 @@
 module.exports = function (gulp, plugins, conf) {
   return function () {
     gulp.src([
-      conf.bower + 'jquery/dist/jquery.js'
+      conf.paths.bower + 'jquery/dist/jquery.js'
     ])
     .pipe(plugins.concat('app.js'))
-    .pipe(gulp.dest(conf.scriptsDestPath));
+    .pipe(gulp.dest(conf.paths.assets.scripts.dest));
   };
 };

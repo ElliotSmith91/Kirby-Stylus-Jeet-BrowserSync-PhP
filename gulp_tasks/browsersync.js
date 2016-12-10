@@ -3,11 +3,9 @@ const browserSync = require('browser-sync');
 module.exports = function (gulp, plugins, conf) {
   browserSync.init({
     proxy: conf.browserSyncProxy,
-    port: 8080,
+    port: conf.broswerSyncPort,
     open: true,
     notify: true,
-
   });
-  console.log("running scripts");
-  gulp.watch(conf.stylesSrcPath, ['styles']);
+  gulp.watch(conf.paths.assets.styles.src, ['styles']);
 };

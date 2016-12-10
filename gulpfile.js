@@ -19,6 +19,6 @@ gulp.task('styles', getTask('styles'));
 gulp.task('copy', getTask('copy'));
 gulp.task('watch', ['styles', 'scripts', 'copy'], getTask('watch'));
 gulp.task('browsersync', ['phpconnect'], getTask('browsersync'));
-gulp.task('phpconnect', getTask('phpconnect'));
+gulp.task('phpconnect', ['copy'], getTask('phpconnect'));
 
 gulp.task('default', ['browsersync', 'watch']);

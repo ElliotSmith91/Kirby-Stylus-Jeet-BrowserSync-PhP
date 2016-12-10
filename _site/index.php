@@ -14,5 +14,3 @@ if(file_exists(__DIR__ . DS . 'site.php')) {
 
 // render
 echo $kirby->launch();
-?>
-<script async="" src="/browser-sync/browser-sync-client.2.11.1.js"></script>

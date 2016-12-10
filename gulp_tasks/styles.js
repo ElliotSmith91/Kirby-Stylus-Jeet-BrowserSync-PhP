@@ -13,18 +13,18 @@ module.exports = function (gulp, plugins, conf) {
       isProduction = false;
     }
     gulp.src(
-      conf.stylesSrcPath
+      conf.paths.assets.styles.src
     )
     .pipe(plugins.stylus({
       onError: browserSync.notify,
       "use": koutoSwiss()
     }))
-    .pipe(plugins.autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))
+    .pipe(plugins.autoprefixer(conf.autoPrefixerList, {cascade: true}))
     .pipe(plugins.concatCss('app.css'))
     .pipe(isProduction ? (plugins.combineMq({log: true})) : plugins.util.noop())
     .pipe(isProduction ? (plugins.uncss({html: ['http://localhost:3001/']})) : plugins.util.noop())
     .pipe(isProduction ? (plugins.cleanCss()): plugins.util.noop())
-    .pipe(gulp.dest(conf.stylesDestPath))
+    .pipe(gulp.dest(conf.paths.assets.styles.dest))
     .pipe(browserSync.stream());
   };
 };
