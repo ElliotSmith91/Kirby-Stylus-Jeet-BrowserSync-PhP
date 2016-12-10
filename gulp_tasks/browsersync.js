@@ -5,7 +5,10 @@ module.exports = function (gulp, plugins, conf) {
     proxy: conf.browserSyncProxy,
     port: conf.broswerSyncPort,
     open: true,
-    notify: true,
+    notify: false,
+    snippetOptions: {
+      ignorePaths: ['panel/**', 'site/accounts/**']
+    },
   });
   gulp.watch(conf.paths.assets.styles.src, ['styles']);
 };

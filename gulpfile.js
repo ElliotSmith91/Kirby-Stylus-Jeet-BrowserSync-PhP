@@ -15,10 +15,11 @@ function getTask(task) {
 }
 
 gulp.task('scripts', getTask('scripts'));
-gulp.task('styles', getTask('styles'));
-gulp.task('copy', getTask('copy'));
+gulp.task('styles', ['copy', 'clean'], getTask('styles'));
+gulp.task('clean', getTask('clean'));
+gulp.task('copy', ['clean'], getTask('copy'));
 gulp.task('watch', ['styles', 'scripts', 'copy'], getTask('watch'));
-gulp.task('browsersync', ['phpconnect'], getTask('browsersync'));
-gulp.task('phpconnect', ['copy'], getTask('phpconnect'));
+gulp.task('browsersync', ['phpconnect', 'copy', 'styles'], getTask('browsersync'));
+gulp.task('phpconnect', ['copy'],  getTask('phpconnect'));
 
 gulp.task('default', ['browsersync', 'watch']);

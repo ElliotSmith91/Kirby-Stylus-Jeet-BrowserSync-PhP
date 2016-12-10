@@ -3,15 +3,17 @@
   "browserSyncProxy": "127.0.0.1:8010",
   "broswerSyncPort": 8010,
   "phpPort": 8010,
-  
+
   "paths": {
     "bower": "./bower_components/",
     "dev": "./_dev/",
     "dest": "./_site/",
+    
 
     "assets": {
       "fonts": {
-        "src": "./_dev/assets/fonts/**"
+        "src": "./_dev/assets/fonts/**",
+        "dest": "./_site/assets/fonts/**"
       },
       "images": {
         "src": "./_dev/assets/images/",
@@ -28,11 +30,28 @@
     },
 
     "site": {
-      "src": "./_dev/site/**"
+      "src": "./_dev/site/**",
+      "blueprints": {
+        "src": "./_dev/site/blueprints/**",
+        "dest": "./_site/site/blueprints/**"
+      },
+      "controllers": {
+        "src": "./_dev/site/controllers/**",
+        "dest": "./_site/site/controllers/**"
+      },
+      "snippets": {
+        "src": "./_dev/site/snippets/**",
+        "dest": "./_site/site/snippets/**"
+      },
+      "templates": {
+        "src": "./_dev/site/snippets/**",
+        "dest": "./_site/site/snippets/**"
+      }
     },
 
     "content": {
-      "src": "./_dev/content/**"
+      "src": "./_dev/content/**",
+      "dest": "./_site/content/**"
     }
   }
 }

@@ -16,8 +16,10 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.1",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.13",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.1",
